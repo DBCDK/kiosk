@@ -33,3 +33,23 @@ function runApp() {
     }
   });
 }
+
+/**
+ * Restars the app at 04:00
+ * Checks every minut (60000 miliseconds)
+ *
+ * @see https://developer.chrome.com/apps/runtime
+ */
+
+setInterval(function() {
+  var h = 4; // The reboot time in hours (int between 0 - 23)
+  var d = new Date();
+
+  // 04:00 Test:
+  // var d = new Date('2020-01-06T04:00:00');
+
+  if (d.getHours() === h) {
+    // autoreboot kiosk at h time
+    chrome.runtime.restart();
+  }
+}, 60000);
